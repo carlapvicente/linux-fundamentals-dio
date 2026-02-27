@@ -1,0 +1,27 @@
+# --- Logs do Sistema ---
+# Ignora o arquivo de log gerado pelo iac.sh
+infra_it.log
+*.log
+
+# --- Arquivos Temporários ---
+# Caso você crie arquivos de backup ou temporários durante a execução
+*.tmp
+*.temp
+*.swp
+*~
+
+# --- Arquivos de Segurança/Configuração ---
+# Se você decidir usar variáveis de ambiente em um arquivo separado
+.env
+
+# --- Arquivos de Sistema ---
+# Ignora arquivos de configuração de pastas do Windows e macOS
+.DS_Store
+Thumbs.db
+
+# --- Arquivos de Editores/IDEs ---
+# Se você usar VS Code ou outras ferramentas
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
