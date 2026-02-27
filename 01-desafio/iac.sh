@@ -1,4 +1,13 @@
 #!/bin/bash
+# --- VALIDAÇÃO DE SUPERUSUÁRIO ---
+if [ "$EUID" -ne 0 ]; then
+    echo "==============================================================="
+    echo "❌ ERRO: Este script deve ser executado como root (use sudo)."
+    echo "Exemplo: sudo ./iac.sh"
+    echo "==============================================================="
+    exit 1
+fi
+
 # Nome do arquivo de log fixo ou por data
 LOG_GERAL="infraestrutura.log"
 
@@ -12,7 +21,7 @@ validar_arquivo_usuarios() {
     local ARQUIVO="usuarios.txt"
     if [ ! -f "$ARQUIVO" ]; then
         echo "==========================================================================="
-        echo "ERRO: Arquivo '$ARQUIVO' não localizado!"
+        echo "❌ ERRO: Arquivo '$ARQUIVO' não localizado!"
         echo "Para prosseguir, crie um arquivo com o nome '$ARQUIVO' no seguinte formato:"
         echo "login:Nome Completo:setor"
         echo "Exemplo:"
@@ -66,6 +75,7 @@ while true; do
         1)
             # Verifica o arquivo antes de pedir as pastas
             if validar_arquivo_usuarios; then
+                echo "✅ Arquivo de usuários validado com sucesso."
                 if solicitar_pastas; then
                     echo "===================="
                     echo "INICIANDO CRIAÇÃO..."
@@ -98,36 +108,38 @@ while true; do
             fi
             ;;
         2)
-            # Para remover, talvez não precise do usuarios.txt existir,
-            # pois o script de remoção pode apenas avisar se o usuário não existe.
-            if solicitar_pastas; then
-                echo "===================="
-                echo "INICIANDO REMOÇÃO..."
-                echo "===================="
-                echo ""
-                # Etapa 1: Removendo usuários (usuarios.txt)
-                ./remover_usuarios.sh > /dev/null
-                # Etapa 2 : Removendo pastas e grupos de permissão
-                ./remover_pastas.sh $PASTAS > /dev/null
-                echo ""
-                # Etapa 3: Validando a remoção dos recursos
-                ./validar_iac.sh --limpar $PASTAS
-                echo ""
-                echo "================================"
-                echo "REMOÇÃO FINALIZADA COM SUCESSO!!"
-                echo "================================"
+            # Verifica o arquivo antes de pedir as pastas
+            if validar_arquivo_usuarios; then
+                echo "✅ Arquivo de usuários validado com sucesso."
+                if solicitar_pastas; then
+                    echo "===================="
+                    echo "INICIANDO REMOÇÃO..."
+                    echo "===================="
+                    echo ""
+                    # Etapa 1: Removendo usuários (usuarios.txt)
+                    ./remover_usuarios.sh > /dev/null
+                    # Etapa 2 : Removendo pastas e grupos de permissão
+                    ./remover_pastas.sh $PASTAS > /dev/null
+                    echo ""
+                    # Etapa 3: Validando a remoção dos recursos
+                    ./validar_iac.sh --limpar $PASTAS
+                    echo ""
+                    echo "================================"
+                    echo "REMOÇÃO FINALIZADA COM SUCESSO!!"
+                    echo "================================"
+                fi
             fi
             ;;
         3)
             echo "================================"
-            echo "OPERAÇÃO CANCELADA..."
-            echo "SAINDO..."
+            echo "👋 OPERAÇÃO FINALIZADA..."
+            echo "SAINDO DO SISTEMA..."
             echo "================================"
             exit 0
             ;;
         *)
             echo "================================"
-            echo "OPERAÇÃO INVÁLIDA..."
+            echo "❌ OPERAÇÃO INVÁLIDA..."
             echo "POR FAVOR, SELECIONE ENTRE AS OPÇÕES DISPONÍVEIS NO MENU INICIAL..."
             echo "================================"
             sleep 1
