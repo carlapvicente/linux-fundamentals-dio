@@ -14,7 +14,7 @@ O objetivo é documentar a evolução do aprendizado em administração de siste
 
 ## Estrutura do Repositório
 
-### [01-desafio](./01-desafio)
+### [Infraestrutura como Código (IaC): Script de Criação de Estrutura de Usuários, Diretórios e Permissões](./01-desafio)
 Contém a solução para o desafio de **Infraestrutura como Código (IaC): Script de Criação de Estrutura de Usuários, Diretórios e Permissões**.
 - Automação de criação de usuários, grupos e diretórios.
 - Gerenciamento de permissões e segurança.
