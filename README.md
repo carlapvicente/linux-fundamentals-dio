@@ -22,6 +22,13 @@ Contém a solução para o desafio de **Infraestrutura como Código (IaC): Scrip
 
 #### Demonstração em Tempo Real
 ![Execução do Gerenciador de Infraestrutura](./assets/01-desafio.gif)
+> Demonstração gravada com ScreenToGif.
+
+---
+## 🛠️ Ferramentas Utilizadas
+- Sistema Operacional: Ubuntu (via WSL2)
+- Linguagem: Shell Script (Bash)
+- Gravação de Demonstração: [ScreenToGif](https://www.screentogif.com/)
 
 ---
 
