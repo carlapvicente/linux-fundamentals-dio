@@ -20,6 +20,9 @@ Contém a solução para o desafio de **Infraestrutura como Código (IaC): Scrip
 - Gerenciamento de permissões e segurança.
 - Scripts de validação e auditoria.
 
+#### Demonstração em Tempo Real
+![Execução do Gerenciador de Infraestrutura](./assets/01-desafio.gif)
+
 ---
 
 ## 🤝 Contribuindo
