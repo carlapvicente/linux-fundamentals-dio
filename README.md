@@ -12,31 +12,46 @@ Este repositório é destinado à publicação dos scripts e soluções desenvol
 
 O objetivo é documentar a evolução do aprendizado em administração de sistemas Linux, focando em automação, gerenciamento de usuários e permissões.
 
-## Estrutura do Repositório
-
-### [Infraestrutura como Código (IaC): Script de Criação de Estrutura de Usuários, Diretórios e Permissões](./01-desafio)
-Contém a solução para o desafio de **Infraestrutura como Código (IaC): Script de Criação de Estrutura de Usuários, Diretórios e Permissões**.
-- Automação de criação de usuários, grupos e diretórios.
-- Gerenciamento de permissões e segurança.
-- Scripts de validação e auditoria.
-
-#### Demonstração em Tempo Real
-![Execução do Gerenciador de Infraestrutura](./assets/01-desafio.gif)
-> Demonstração gravada com ScreenToGif.
-
 ---
-## 🛠️ Ferramentas Utilizadas
+
+# 🛠️ Ferramentas Utilizadas
 - Sistema Operacional: Ubuntu (via WSL2)
 - Linguagem: Shell Script (Bash)
 - Gravação de Demonstração: [ScreenToGif](https://www.screentogif.com/)
 
 ---
 
-## 🤝 Contribuindo
+# Estrutura do Repositório
 
-Este repositório é utilizado para estudos de Linux.
+## [Infraestrutura como Código (IaC): Script de Criação de Estrutura de Usuários, Diretórios e Permissões](./01-desafio)
+Contém a solução para o desafio de **Infraestrutura como Código (IaC): Script de Criação de Estrutura de Usuários, Diretórios e Permissões**.
+- Automação de criação de usuários, grupos e diretórios.
+- Gerenciamento de permissões e segurança.
+- Scripts de validação e auditoria.
 
-- **Melhorias:** Se você encontrou um bug, melhorou um script ou criou um novo script, abra um Pull Request neste repositório. Sua contribuição ajudará todos que utilizam este repositório a evoluir nos estudos de Linux.
+### Demonstração em Tempo Real
+
+> Demonstração foi gravada com ScreenToGif.
+
+- Falha ao executar o script `iac.sh` com um usuários sem ser o `root` e sem utilizar o comando `sudo`:
+    ![Execução do Gerenciador de Infraestrutura](./assets/01-desafio/demo_01.gif)
+
+- Falha ao tentar criar os usuários sem ter o arquivo `usuarios.txt`:
+    ![Execução do Gerenciador de Infraestrutura](./assets/01-desafio/demo_02.gif)
+
+- Criação de diretórios, grupos de permissão e usuários:
+    ![Execução do Gerenciador de Infraestrutura](./assets/01-desafio/demo_03.gif)
+
+- Remoção de diretórios, grupos de permissão e usuários:
+    ![Execução do Gerenciador de Infraestrutura](./assets/01-desafio/demo_04.gif)
+
+---
+
+# 🤝 Contribuindo
+
+Este repositório tem como foco o estudo e a prática de administração de sistemas Linux.
+
+- **Melhorias:** Encontrou um bug, otimizou um script ou tem uma nova ideia? Sinta-se à vontade para abrir um Pull Request. Sua contribuição ajuda a comunidade a evoluir.
 
 Juntos construímos uma comunidade de aprendizado prático e acessível. 🚀
 
